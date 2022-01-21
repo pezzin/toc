@@ -144,6 +144,28 @@
         draggable: true,
       });
 
+      var grey_box1 = new Konva.Rect({
+        x: rectX + 420,
+        y: rectY + offset,
+        width: 40,
+        height: 40,
+        fill: '#0000ff',
+        stroke: 'black',
+        strokeWidth: 1,
+        draggable: true,
+      });
+
+      var grey_box2 = new Konva.Rect({
+        x: rectX + 490,
+        y: rectY + offset,
+        width: 40,
+        height: 40,
+        fill: '#0000ff',
+        stroke: 'black',
+        strokeWidth: 1,
+        draggable: true,
+      });
+
       // add image using main API:
       var imageObj = new Image();
       imageObj.onload = function () {
@@ -229,6 +251,20 @@
         document.body.style.cursor = 'default';
       });
 
+      // add cursor styling to grey boxes
+      grey_box1.on('mouseover', function () {
+        document.body.style.cursor = 'pointer';
+      });
+      grey_box1.on('mouseout', function () {
+        document.body.style.cursor = 'default';
+      });
+      grey_box2.on('mouseover', function () {
+        document.body.style.cursor = 'pointer';
+      });
+      grey_box2.on('mouseout', function () {
+        document.body.style.cursor = 'default';
+      });
+
       imageObj.src = 'img/campo.jpg';
 
       layer.add(yellow_box1);
@@ -241,6 +277,8 @@
       layer.add(black_box2);
       layer.add(blue_box1);
       layer.add(blue_box2);
+      layer.add(grey_box1);
+      layer.add(grey_box2);
 
     </script>
   </body>
