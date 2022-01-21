@@ -1,88 +1,132 @@
 <!DOCTYPE html>
 <html>
-<style>
-#mydivblack1 {
-  position: absolute;
-  top: 100px;
-  left: 10px;
-  padding: 10px;
-  cursor: move;
-  z-index: 9;
-  background-color: #000000;
-  text-align: center;
-  border: 1px solid #d3d3d3;
-}
+  <head>
+    <script src="https://unpkg.com/konva@8.3.2/konva.min.js"></script>
+    <meta charset="utf-8" />
+    <title>Thrones of Cubes</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      var width = window.innerWidth;
+      var height = window.innerHeight;
 
-#mydivblack2 {
-  position: absolute;
-  top: 200px;
-  left: 10px;
-  padding: 10px;
-  cursor: move;
-  z-index: 9;
-  background-color: #000000;
-  text-align: center;
-  border: 1px solid #d3d3d3;
-}
-</style>
-<body>
+      var stage = new Konva.Stage({
+        container: 'container',
+        width: width,
+        height: height,
+      });
 
-<h1>Throne of Cubes</h1>
+      var layer = new Konva.Layer();
+      stage.add(layer);
 
-<div id="mydivblack1">
-  <p>--------</p>
-</div>
 
-<div id="mydivblack2">
-  <p>--------</p>
-</div>
+      var rectX = stage.width() / 2 - 50;
+      var rectY = stage.height() / 2 - 25;
 
-<script>
-//Make the DIV element draggagle:
-dragElement(document.getElementById("mydivblack1"));
-dragElement(document.getElementById("mydivblack2"));
+      var red_box1 = new Konva.Rect({
+        x: rectX,
+        y: rectY + 50,
+        width: 40,
+        height: 40,
+        fill: '#ff0000',
+        stroke: 'black',
+        strokeWidth: 1,
+        draggable: true,
+      });
 
-function dragElement(elmnt) {
-  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  if (document.getElementById(elmnt.id + "header")) {
-    /* if present, the header is where you move the DIV from:*/
-    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-  } else {
-    /* otherwise, move the DIV from anywhere inside the DIV:*/
-    elmnt.onmousedown = dragMouseDown;
-  }
+      var red_box2 = new Konva.Rect({
+        x: rectX + 70,
+        y: rectY + 50,
+        width: 40,
+        height: 40,
+        fill: '#ff0000',
+        stroke: 'black',
+        strokeWidth: 1,
+        draggable: true,
+      });
 
-  function dragMouseDown(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // get the mouse cursor position at startup:
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
-    document.onmousemove = elementDrag;
-  }
+      var black_box1 = new Konva.Rect({
+        x: rectX + 140,
+        y: rectY + 50,
+        width: 40,
+        height: 40,
+        fill: '#000000',
+        stroke: 'black',
+        strokeWidth: 1,
+        draggable: true,
+      });
 
-  function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // calculate the new cursor position:
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-  }
+      var black_box2 = new Konva.Rect({
+        x: rectX + 210,
+        y: rectY + 50,
+        width: 40,
+        height: 40,
+        fill: '#000000',
+        stroke: 'black',
+        strokeWidth: 1,
+        draggable: true,
+      });
 
-  function closeDragElement() {
-    /* stop moving when mouse button is released:*/
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
-}
-</script>
+      // add image using main API:
+      var imageObj = new Image();
+      imageObj.onload = function () {
+        var campo = new Konva.Image({
+          x: 350,
+          y: 50,
+          image: imageObj,
+          width: 600,
+          height: 400,
+        });
 
-</body>
+        layer.add(campo);
+        campo.zIndex(0);
+      };
+
+      // add cursor styling to red boxes
+      red_box1.on('mouseover', function () {
+        document.body.style.cursor = 'pointer';
+      });
+      red_box1.on('mouseout', function () {
+        document.body.style.cursor = 'default';
+      });
+      red_box2.on('mouseover', function () {
+        document.body.style.cursor = 'pointer';
+      });
+      red_box2.on('mouseout', function () {
+        document.body.style.cursor = 'default';
+      });
+
+      // add cursor styling to black boxes
+      black_box1.on('mouseover', function () {
+        document.body.style.cursor = 'pointer';
+      });
+      black_box1.on('mouseout', function () {
+        document.body.style.cursor = 'default';
+      });
+      black_box2.on('mouseover', function () {
+        document.body.style.cursor = 'pointer';
+      });
+      black_box2.on('mouseout', function () {
+        document.body.style.cursor = 'default';
+      });
+
+      imageObj.src = 'img/campo.jpg';
+
+      layer.add(red_box1);
+      layer.add(red_box2);
+      layer.add(black_box1);
+      layer.add(black_box2);
+
+
+    </script>
+  </body>
 </html>
