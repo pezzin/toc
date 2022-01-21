@@ -28,13 +28,59 @@
       var layer = new Konva.Layer();
       stage.add(layer);
 
-
       var rectX = stage.width() / 2 - 50;
       var rectY = stage.height() / 2 - 25;
+      var mapX = stage.width() / 2 - 300;
+      var mapY = stage.height() / 2 - 200;
+      var offset = 300;
+
+      var yellow_box1 = new Konva.Rect({
+        x: rectX - 210,
+        y: rectY + offset,
+        width: 40,
+        height: 40,
+        fill: '#ffff00',
+        stroke: 'black',
+        strokeWidth: 1,
+        draggable: true,
+      });
+
+      var yellow_box2 = new Konva.Rect({
+        x: rectX - 280,
+        y: rectY + offset,
+        width: 40,
+        height: 40,
+        fill: '#ffff00',
+        stroke: 'black',
+        strokeWidth: 1,
+        draggable: true,
+      });
+
+      var white_box1 = new Konva.Rect({
+        x: rectX - 70,
+        y: rectY + offset,
+        width: 40,
+        height: 40,
+        fill: '#ffffff',
+        stroke: 'black',
+        strokeWidth: 1,
+        draggable: true,
+      });
+
+      var white_box2 = new Konva.Rect({
+        x: rectX - 140,
+        y: rectY + offset,
+        width: 40,
+        height: 40,
+        fill: '#ffffff',
+        stroke: 'black',
+        strokeWidth: 1,
+        draggable: true,
+      });
 
       var red_box1 = new Konva.Rect({
         x: rectX,
-        y: rectY + 50,
+        y: rectY + offset,
         width: 40,
         height: 40,
         fill: '#ff0000',
@@ -45,7 +91,7 @@
 
       var red_box2 = new Konva.Rect({
         x: rectX + 70,
-        y: rectY + 50,
+        y: rectY + offset,
         width: 40,
         height: 40,
         fill: '#ff0000',
@@ -56,7 +102,7 @@
 
       var black_box1 = new Konva.Rect({
         x: rectX + 140,
-        y: rectY + 50,
+        y: rectY + offset,
         width: 40,
         height: 40,
         fill: '#000000',
@@ -67,10 +113,32 @@
 
       var black_box2 = new Konva.Rect({
         x: rectX + 210,
-        y: rectY + 50,
+        y: rectY + offset,
         width: 40,
         height: 40,
         fill: '#000000',
+        stroke: 'black',
+        strokeWidth: 1,
+        draggable: true,
+      });
+
+      var blue_box1 = new Konva.Rect({
+        x: rectX + 280,
+        y: rectY + offset,
+        width: 40,
+        height: 40,
+        fill: '#0000ff',
+        stroke: 'black',
+        strokeWidth: 1,
+        draggable: true,
+      });
+
+      var blue_box2 = new Konva.Rect({
+        x: rectX + 350,
+        y: rectY + offset,
+        width: 40,
+        height: 40,
+        fill: '#0000ff',
         stroke: 'black',
         strokeWidth: 1,
         draggable: true,
@@ -80,8 +148,8 @@
       var imageObj = new Image();
       imageObj.onload = function () {
         var campo = new Konva.Image({
-          x: 350,
-          y: 50,
+          x: mapX,
+          y: mapY,
           image: imageObj,
           width: 600,
           height: 400,
@@ -90,6 +158,34 @@
         layer.add(campo);
         campo.zIndex(0);
       };
+
+      // add cursor styling to yellow boxes
+      yellow_box1.on('mouseover', function () {
+        document.body.style.cursor = 'pointer';
+      });
+      yellow_box1.on('mouseout', function () {
+        document.body.style.cursor = 'default';
+      });
+      yellow_box2.on('mouseover', function () {
+        document.body.style.cursor = 'pointer';
+      });
+      yellow_box2.on('mouseout', function () {
+        document.body.style.cursor = 'default';
+      });
+
+      // add cursor styling to white boxes
+      white_box1.on('mouseover', function () {
+        document.body.style.cursor = 'pointer';
+      });
+      white_box1.on('mouseout', function () {
+        document.body.style.cursor = 'default';
+      });
+      white_box2.on('mouseover', function () {
+        document.body.style.cursor = 'pointer';
+      });
+      white_box2.on('mouseout', function () {
+        document.body.style.cursor = 'default';
+      });
 
       // add cursor styling to red boxes
       red_box1.on('mouseover', function () {
@@ -119,13 +215,32 @@
         document.body.style.cursor = 'default';
       });
 
+      // add cursor styling to blue boxes
+      blue_box1.on('mouseover', function () {
+        document.body.style.cursor = 'pointer';
+      });
+      blue_box1.on('mouseout', function () {
+        document.body.style.cursor = 'default';
+      });
+      blue_box2.on('mouseover', function () {
+        document.body.style.cursor = 'pointer';
+      });
+      blue_box2.on('mouseout', function () {
+        document.body.style.cursor = 'default';
+      });
+
       imageObj.src = 'img/campo.jpg';
 
+      layer.add(yellow_box1);
+      layer.add(yellow_box2);
+      layer.add(white_box1);
+      layer.add(white_box2);
       layer.add(red_box1);
       layer.add(red_box2);
       layer.add(black_box1);
       layer.add(black_box2);
-
+      layer.add(blue_box1);
+      layer.add(blue_box2);
 
     </script>
   </body>
