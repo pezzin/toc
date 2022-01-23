@@ -19,6 +19,23 @@
       var width = window.innerWidth;
       var height = window.innerHeight;
 
+// Common params for Cubes
+      var cube_width = 30;
+      var cube_height = 30;
+
+      var common_stroke = 3;
+
+      var color_yellow = '#ffe115';
+      var color_red = '#DE0C1C';
+      var color_black = '#1c1c1c';
+      var color_blue = '#34509a';
+      var color_white = '#ffffff';
+      var color_grey = '#7f7f7f';
+      var color_lightbrown = '#f3ece4';
+      var color_darkbrown = '#a69480';
+      var color_border = '#4a4338';
+
+
       var stage = new Konva.Stage({
         container: 'container',
         width: width,
@@ -26,144 +43,167 @@
       });
 
       var layer = new Konva.Layer();
-      stage.add(layer);
 
       var rectX = stage.width() / 2 - 50;
       var rectY = stage.height() / 2 - 25;
       var mapX = stage.width() / 2 - 300;
       var mapY = stage.height() / 2 - 200;
       var offset = 300;
+      var distanza = 30;
+      var cube_p1 = (stage.width() / 2 - 300) / 2 - 100;
+      var cube_y_p1 = stage.height() / 2 - 200;
+      var cube_p2 = (stage.width() / 2 - 300) + 600 + ((stage.width() / 2 - 300) / 2);
+      var cube_y_p2 = stage.height() / 2 - 200;
 
       var yellow_box1 = new Konva.Rect({
-        x: rectX - 210,
-        y: rectY + offset,
-        width: 40,
-        height: 40,
-        fill: '#ffff00',
+        x: cube_p1,
+        y: cube_y_p1,
+        width: cube_width,
+        height: cube_height,
+        fill: color_yellow,
         stroke: 'black',
-        strokeWidth: 1,
+        strokeWidth: common_stroke,
         draggable: true,
       });
 
       var yellow_box2 = new Konva.Rect({
-        x: rectX - 280,
-        y: rectY + offset,
-        width: 40,
-        height: 40,
-        fill: '#ffff00',
+        x: cube_p1 + distanza,
+        y: cube_y_p1,
+        width: cube_width,
+        height: cube_height,
+        fill: color_yellow,
         stroke: 'black',
-        strokeWidth: 1,
+        strokeWidth: common_stroke,
         draggable: true,
       });
 
       var white_box1 = new Konva.Rect({
-        x: rectX - 70,
-        y: rectY + offset,
-        width: 40,
-        height: 40,
-        fill: '#ffffff',
+        x: cube_p1 + distanza * 2,
+        y: cube_y_p1,
+        width: cube_width,
+        height: cube_height,
+        fill: color_white,
         stroke: 'black',
-        strokeWidth: 1,
+        strokeWidth: common_stroke,
         draggable: true,
       });
 
       var white_box2 = new Konva.Rect({
-        x: rectX - 140,
-        y: rectY + offset,
-        width: 40,
-        height: 40,
-        fill: '#ffffff',
+        x: cube_p1 + distanza * 3,
+        y: cube_y_p1,
+        width: cube_width,
+        height: cube_height,
+        fill: color_white,
         stroke: 'black',
-        strokeWidth: 1,
+        strokeWidth: common_stroke,
         draggable: true,
       });
 
       var red_box1 = new Konva.Rect({
-        x: rectX,
-        y: rectY + offset,
-        width: 40,
-        height: 40,
-        fill: '#ff0000',
+        x: cube_p1 + distanza * 4,
+        y: cube_y_p1,
+        width: cube_width,
+        height: cube_height,
+        fill: color_red,
         stroke: 'black',
-        strokeWidth: 1,
+        strokeWidth: common_stroke,
         draggable: true,
       });
 
       var red_box2 = new Konva.Rect({
-        x: rectX + 70,
-        y: rectY + offset,
-        width: 40,
-        height: 40,
-        fill: '#ff0000',
+        x: cube_p1 + distanza * 5,
+        y: cube_y_p1,
+        width: cube_width,
+        height: cube_height,
+        fill: color_red,
         stroke: 'black',
-        strokeWidth: 1,
+        strokeWidth: common_stroke,
         draggable: true,
       });
 
       var black_box1 = new Konva.Rect({
-        x: rectX + 140,
-        y: rectY + offset,
-        width: 40,
-        height: 40,
-        fill: '#000000',
+        x: cube_p1 + distanza * 6,
+        y: cube_y_p1,
+        width: cube_width,
+        height: cube_height,
+        fill: color_black,
         stroke: 'black',
-        strokeWidth: 1,
+        strokeWidth: common_stroke,
         draggable: true,
       });
 
       var black_box2 = new Konva.Rect({
-        x: rectX + 210,
-        y: rectY + offset,
-        width: 40,
-        height: 40,
-        fill: '#000000',
+        x: cube_p1 + distanza * 7,
+        y: cube_y_p1,
+        width: cube_width,
+        height: cube_height,
+        fill: color_black,
         stroke: 'black',
-        strokeWidth: 1,
+        strokeWidth: common_stroke,
         draggable: true,
       });
 
       var blue_box1 = new Konva.Rect({
-        x: rectX + 280,
-        y: rectY + offset,
-        width: 40,
-        height: 40,
-        fill: '#0000ff',
+        x: cube_p1 + distanza * 8,
+        y: cube_y_p1,
+        width: cube_width,
+        height: cube_height,
+        fill: color_blue,
         stroke: 'black',
-        strokeWidth: 1,
+        strokeWidth: common_stroke,
         draggable: true,
       });
 
       var blue_box2 = new Konva.Rect({
-        x: rectX + 350,
-        y: rectY + offset,
-        width: 40,
-        height: 40,
-        fill: '#0000ff',
+        x: cube_p1 + distanza * 9,
+        y: cube_y_p1,
+        width: cube_width,
+        height: cube_height,
+        fill: color_blue,
         stroke: 'black',
-        strokeWidth: 1,
+        strokeWidth: common_stroke,
         draggable: true,
       });
 
       var grey_box1 = new Konva.Rect({
-        x: rectX + 420,
-        y: rectY + offset,
-        width: 40,
-        height: 40,
-        fill: '#616161',
+        x: cube_p1 + distanza * 10,
+        y: cube_y_p1,
+        width: cube_width,
+        height: cube_height,
+        fill: color_grey,
         stroke: 'black',
-        strokeWidth: 1,
+        strokeWidth: common_stroke,
         draggable: true,
       });
 
       var grey_box2 = new Konva.Rect({
-        x: rectX + 490,
-        y: rectY + offset,
-        width: 40,
-        height: 40,
-        fill: '#616161',
+        x: cube_p1 + distanza * 11,
+        y: cube_y_p1,
+        width: cube_width,
+        height: cube_height,
+        fill: color_grey,
         stroke: 'black',
-        strokeWidth: 1,
+        strokeWidth: common_stroke,
         draggable: true,
+      });
+
+      // add names Players
+      var label_p1 = new Konva.Text({
+        x: stage.width() / 2 - 600,
+        y: cube_y_p1 - 50,
+        text: 'Player 1',
+        fontSize: 30,
+        fontFamily: 'Calibri',
+        fill: 'green',
+      });
+
+      var label_p2 = new Konva.Text({
+        x: stage.width() / 2 + 600,
+        y: cube_y_p2 - 50,
+        text: 'Player 2',
+        fontSize: 30,
+        fontFamily: 'Calibri',
+        fill: 'green',
       });
 
       // add image using main API:
@@ -174,12 +214,12 @@
           y: mapY,
           image: imageObj,
           width: 600,
-          height: 400,
+          height: 480,
         });
 
         layer.add(campo);
         campo.zIndex(0);
-      };
+      }
 
       // add cursor styling to yellow boxes
       yellow_box1.on('mouseover', function () {
@@ -265,7 +305,7 @@
         document.body.style.cursor = 'default';
       });
 
-      imageObj.src = 'img/campo.jpg';
+      imageObj.src = 'img/mappa.jpg';
 
       layer.add(yellow_box1);
       layer.add(yellow_box2);
@@ -279,7 +319,9 @@
       layer.add(blue_box2);
       layer.add(grey_box1);
       layer.add(grey_box2);
-
+      layer.add(label_p1);
+      layer.add(label_p2);
+      stage.add(layer);
     </script>
   </body>
 </html>
