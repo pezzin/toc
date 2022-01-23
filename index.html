@@ -1,327 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="https://unpkg.com/konva@8.3.2/konva.min.js"></script>
-    <meta charset="utf-8" />
-    <title>Thrones of Cubes</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #f0f0f0;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="container"></div>
-    <script>
-      var width = window.innerWidth;
-      var height = window.innerHeight;
+<head>
+<title>Thrones of Cubes</title>
+<style media="screen">
+  .button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
 
-// Common params for Cubes
-      var cube_width = 30;
-      var cube_height = 30;
+.button1 {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
 
-      var common_stroke = 3;
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 
-      var color_yellow = '#ffe115';
-      var color_red = '#DE0C1C';
-      var color_black = '#1c1c1c';
-      var color_blue = '#34509a';
-      var color_white = '#ffffff';
-      var color_grey = '#7f7f7f';
-      var color_lightbrown = '#f3ece4';
-      var color_darkbrown = '#a69480';
-      var color_border = '#4a4338';
+</style>
+</head>
+<body>
+<center>
+<h1>Thrones of Cubes</h1>
+<p>Make your choice:</p>
 
-
-      var stage = new Konva.Stage({
-        container: 'container',
-        width: width,
-        height: height,
-      });
-
-      var layer = new Konva.Layer();
-
-      var rectX = stage.width() / 2 - 50;
-      var rectY = stage.height() / 2 - 25;
-      var mapX = stage.width() / 2 - 300;
-      var mapY = stage.height() / 2 - 200;
-      var offset = 300;
-      var distanza = 30;
-      var cube_p1 = (stage.width() / 2 - 300) / 2 - 100;
-      var cube_y_p1 = stage.height() / 2 - 200;
-      var cube_p2 = (stage.width() / 2 - 300) + 600 + ((stage.width() / 2 - 300) / 2);
-      var cube_y_p2 = stage.height() / 2 - 200;
-
-      var yellow_box1 = new Konva.Rect({
-        x: cube_p1,
-        y: cube_y_p1,
-        width: cube_width,
-        height: cube_height,
-        fill: color_yellow,
-        stroke: 'black',
-        strokeWidth: common_stroke,
-        draggable: true,
-      });
-
-      var yellow_box2 = new Konva.Rect({
-        x: cube_p1 + distanza,
-        y: cube_y_p1,
-        width: cube_width,
-        height: cube_height,
-        fill: color_yellow,
-        stroke: 'black',
-        strokeWidth: common_stroke,
-        draggable: true,
-      });
-
-      var white_box1 = new Konva.Rect({
-        x: cube_p1 + distanza * 2,
-        y: cube_y_p1,
-        width: cube_width,
-        height: cube_height,
-        fill: color_white,
-        stroke: 'black',
-        strokeWidth: common_stroke,
-        draggable: true,
-      });
-
-      var white_box2 = new Konva.Rect({
-        x: cube_p1 + distanza * 3,
-        y: cube_y_p1,
-        width: cube_width,
-        height: cube_height,
-        fill: color_white,
-        stroke: 'black',
-        strokeWidth: common_stroke,
-        draggable: true,
-      });
-
-      var red_box1 = new Konva.Rect({
-        x: cube_p1 + distanza * 4,
-        y: cube_y_p1,
-        width: cube_width,
-        height: cube_height,
-        fill: color_red,
-        stroke: 'black',
-        strokeWidth: common_stroke,
-        draggable: true,
-      });
-
-      var red_box2 = new Konva.Rect({
-        x: cube_p1 + distanza * 5,
-        y: cube_y_p1,
-        width: cube_width,
-        height: cube_height,
-        fill: color_red,
-        stroke: 'black',
-        strokeWidth: common_stroke,
-        draggable: true,
-      });
-
-      var black_box1 = new Konva.Rect({
-        x: cube_p1 + distanza * 6,
-        y: cube_y_p1,
-        width: cube_width,
-        height: cube_height,
-        fill: color_black,
-        stroke: 'black',
-        strokeWidth: common_stroke,
-        draggable: true,
-      });
-
-      var black_box2 = new Konva.Rect({
-        x: cube_p1 + distanza * 7,
-        y: cube_y_p1,
-        width: cube_width,
-        height: cube_height,
-        fill: color_black,
-        stroke: 'black',
-        strokeWidth: common_stroke,
-        draggable: true,
-      });
-
-      var blue_box1 = new Konva.Rect({
-        x: cube_p1 + distanza * 8,
-        y: cube_y_p1,
-        width: cube_width,
-        height: cube_height,
-        fill: color_blue,
-        stroke: 'black',
-        strokeWidth: common_stroke,
-        draggable: true,
-      });
-
-      var blue_box2 = new Konva.Rect({
-        x: cube_p1 + distanza * 9,
-        y: cube_y_p1,
-        width: cube_width,
-        height: cube_height,
-        fill: color_blue,
-        stroke: 'black',
-        strokeWidth: common_stroke,
-        draggable: true,
-      });
-
-      var grey_box1 = new Konva.Rect({
-        x: cube_p1 + distanza * 10,
-        y: cube_y_p1,
-        width: cube_width,
-        height: cube_height,
-        fill: color_grey,
-        stroke: 'black',
-        strokeWidth: common_stroke,
-        draggable: true,
-      });
-
-      var grey_box2 = new Konva.Rect({
-        x: cube_p1 + distanza * 11,
-        y: cube_y_p1,
-        width: cube_width,
-        height: cube_height,
-        fill: color_grey,
-        stroke: 'black',
-        strokeWidth: common_stroke,
-        draggable: true,
-      });
-
-      // add names Players
-      var label_p1 = new Konva.Text({
-        x: stage.width() / 2 - 600,
-        y: cube_y_p1 - 50,
-        text: 'Player 1',
-        fontSize: 30,
-        fontFamily: 'Calibri',
-        fill: 'green',
-      });
-
-      var label_p2 = new Konva.Text({
-        x: stage.width() / 2 + 600,
-        y: cube_y_p2 - 50,
-        text: 'Player 2',
-        fontSize: 30,
-        fontFamily: 'Calibri',
-        fill: 'green',
-      });
-
-      // add image using main API:
-      var imageObj = new Image();
-      imageObj.onload = function () {
-        var campo = new Konva.Image({
-          x: mapX,
-          y: mapY,
-          image: imageObj,
-          width: 600,
-          height: 480,
-        });
-
-        layer.add(campo);
-        campo.zIndex(0);
-      }
-
-      // add cursor styling to yellow boxes
-      yellow_box1.on('mouseover', function () {
-        document.body.style.cursor = 'pointer';
-      });
-      yellow_box1.on('mouseout', function () {
-        document.body.style.cursor = 'default';
-      });
-      yellow_box2.on('mouseover', function () {
-        document.body.style.cursor = 'pointer';
-      });
-      yellow_box2.on('mouseout', function () {
-        document.body.style.cursor = 'default';
-      });
-
-      // add cursor styling to white boxes
-      white_box1.on('mouseover', function () {
-        document.body.style.cursor = 'pointer';
-      });
-      white_box1.on('mouseout', function () {
-        document.body.style.cursor = 'default';
-      });
-      white_box2.on('mouseover', function () {
-        document.body.style.cursor = 'pointer';
-      });
-      white_box2.on('mouseout', function () {
-        document.body.style.cursor = 'default';
-      });
-
-      // add cursor styling to red boxes
-      red_box1.on('mouseover', function () {
-        document.body.style.cursor = 'pointer';
-      });
-      red_box1.on('mouseout', function () {
-        document.body.style.cursor = 'default';
-      });
-      red_box2.on('mouseover', function () {
-        document.body.style.cursor = 'pointer';
-      });
-      red_box2.on('mouseout', function () {
-        document.body.style.cursor = 'default';
-      });
-
-      // add cursor styling to black boxes
-      black_box1.on('mouseover', function () {
-        document.body.style.cursor = 'pointer';
-      });
-      black_box1.on('mouseout', function () {
-        document.body.style.cursor = 'default';
-      });
-      black_box2.on('mouseover', function () {
-        document.body.style.cursor = 'pointer';
-      });
-      black_box2.on('mouseout', function () {
-        document.body.style.cursor = 'default';
-      });
-
-      // add cursor styling to blue boxes
-      blue_box1.on('mouseover', function () {
-        document.body.style.cursor = 'pointer';
-      });
-      blue_box1.on('mouseout', function () {
-        document.body.style.cursor = 'default';
-      });
-      blue_box2.on('mouseover', function () {
-        document.body.style.cursor = 'pointer';
-      });
-      blue_box2.on('mouseout', function () {
-        document.body.style.cursor = 'default';
-      });
-
-      // add cursor styling to grey boxes
-      grey_box1.on('mouseover', function () {
-        document.body.style.cursor = 'pointer';
-      });
-      grey_box1.on('mouseout', function () {
-        document.body.style.cursor = 'default';
-      });
-      grey_box2.on('mouseover', function () {
-        document.body.style.cursor = 'pointer';
-      });
-      grey_box2.on('mouseout', function () {
-        document.body.style.cursor = 'default';
-      });
-
-      imageObj.src = 'img/mappa.jpg';
-
-      layer.add(yellow_box1);
-      layer.add(yellow_box2);
-      layer.add(white_box1);
-      layer.add(white_box2);
-      layer.add(red_box1);
-      layer.add(red_box2);
-      layer.add(black_box1);
-      layer.add(black_box2);
-      layer.add(blue_box1);
-      layer.add(blue_box2);
-      layer.add(grey_box1);
-      layer.add(grey_box2);
-      layer.add(label_p1);
-      layer.add(label_p2);
-      stage.add(layer);
-    </script>
-  </body>
+<a href="play.html"><button class="button button1">Play a new game</button></a>
+<button class="button disabled">Join existing game</button>
+</center>
+</body>
 </html>
