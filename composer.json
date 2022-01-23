@@ -1,1 +1,12 @@
-
+{
+    "authors": [
+        {
+            "name": "Davide Ghelfi",
+            "role": "Designer"
+        },
+        {
+            "name": "Christian Pezzin",
+            "role": "Developer"
+        }
+    ]
+}
