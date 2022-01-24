@@ -40,7 +40,10 @@ $sql_check = "SELECT id FROM rooms WHERE unique_id = '".$game_code."'";
 $result = $conn->query($sql_check);
 
 if ($result->num_rows == 0) {
-     echo "Room not found!";
+  echo "<center>";
+  echo "<h1>Room not found!</h1><br />"
+  echo "Back to the <a href=\"index.html\">home page</a>";
+  echo "</center>";
 } else {
   // Write name of player 2 in DB
   $sql_update = "UPDATE rooms SET player2_name = '".$player2_name."' WHERE unique_id = '".$game_code."'";
