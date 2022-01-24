@@ -40,6 +40,7 @@
  <input type="text" id="code" name="code"><br>
  <label for="name">Your name:</label><br>
  <input type="text" id="name" name="name">
+ <input type="submit">
 </form>
 </center>
 </body>
