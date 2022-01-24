@@ -22,4 +22,13 @@ if ($result->num_rows > 0) {
 
 $conn->close();
 
+
+function generateRand_md5uid() {
+	$better_token = md5(uniqid(rand(), true));
+	$unique_code = substr($better_token, 64);
+	return $unique_code;
+}
+
+echo generateRand_md5uid();
+
 ?>
