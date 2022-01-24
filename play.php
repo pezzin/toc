@@ -279,7 +279,7 @@ $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 
 $p1 = $row["player1_name"];
-$p2 = $row["player2_name"]
+$p2 = $row["player2_name"];
 
 $conn->close();
 ?>
