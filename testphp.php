@@ -20,7 +20,7 @@ if ($result->num_rows > 0) {
   echo "0 results";
 }
 
-$conn->close();
+// $conn->close();
 
 
 function generateRand_md5uid() {
@@ -35,5 +35,17 @@ echo "Random ID:<br />";
 $c = uniqid (rand (),false);
 echo $c;
 echo "<br />";
+
+// Test creation of new rows in the DB
+$sql = "INSERT INTO rooms (unique_id, status)
+        VALUES ($c, 'New')";
+
+if ($conn->query($sql) === TRUE) {
+  echo "New room created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
 
 ?>
