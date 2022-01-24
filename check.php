@@ -41,7 +41,7 @@ $result = $conn->query($sql_check);
 
 if ($result->num_rows == 0) {
   echo "<center>";
-  echo "<h1>Room not found!</h1><br />"
+  echo "<h1>Room not found!</h1><br />";
   echo "Back to the <a href=\"index.html\">home page</a>";
   echo "</center>";
 } else {
