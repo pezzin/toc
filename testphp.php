@@ -29,6 +29,11 @@ function generateRand_md5uid() {
 	return $unique_code;
 }
 
-echo generateRand_md5uid();
+// echo generateRand_md5uid();
+
+echo "Random ID:<br />";
+$c = uniqid (rand (),true);
+echo $c;
+echo "<br />";
 
 ?>
