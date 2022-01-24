@@ -4,7 +4,7 @@
 <title>Thrones of Cubes</title>
 <style media="screen">
   .button {
-    background-color: #4CAF50; /* Green */
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     border: none;
     color: white;
     padding: 15px 32px;
@@ -18,10 +18,13 @@
     transition-duration: 0.4s;
   }
 
-.button1 {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+.button_blue {
+  background-color: #34509a; /* Blue */
 }
 
+.button_red {
+  background-color: #DE0C1C; /* Red */
+}
 .disabled {
   opacity: 0.6;
   cursor: not-allowed;
@@ -34,8 +37,8 @@
 <h1>Thrones of Cubes</h1>
 <p>Make your choice:</p>
 
-<a href="play.html"><button class="button button1">Play a new game</button></a>
-<button class="button disabled">Join existing game</button>
+<a href="play.html"><button class="button button_blue">Play a new game</button></a>
+<a href="join.php"><button class="button button_red">Join existing game</button></a>
 </center>
 </body>
 </html>

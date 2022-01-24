@@ -1,11 +1,16 @@
-
 <?php
+/*
 echo "Codice:" . $_GET['code'];
 echo "<br />";
 echo "Nome:" . $_GET['name'];
 echo "<br />";
 echo "IP:" . $_SERVER['REMOTE_ADDR'];
-/*
+*/
+
+// Get values from previous form
+$game_code = $_GET['code'];
+$player2_name = $_GET['name'];
+
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 $server = $url["host"];
@@ -15,11 +20,12 @@ $db = substr($url["path"], 1);
 
 $conn = new mysqli($server, $username, $password, $db);
 
+/* SELECT QUERY
 $sql = "SELECT * from rooms";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-  // output data of each row
+  // output data of each row$mysqli->query("SELECT id FROM mytable WHERE city = 'c7'");
   while($row = $result->fetch_assoc()) {
     echo "id: " . $row["id"]. " - Unique ID: " . $row["unique_id"]. " - Status: " . $row["status"]. "<br>";
   }
@@ -27,23 +33,32 @@ if ($result->num_rows > 0) {
   echo "0 results";
 }
 
-// $conn->close();
+$conn->close();
+*/
 
+$sql_check = "SELECT id FROM rooms WHERE unique_id = '".$game_code."'";
+$result = $conn->query($sql_check);
 
-function generateRand_md5uid() {
-	$better_token = md5(uniqid(rand(), true));
-	$unique_code = substr($better_token, 64);
-	return $unique_code;
+if ($result->num_rows == 0) {
+     echo "Room not found!";
+} else {
+  // Write name of player 2 in DB
+  $sql_update = "UPDATE rooms SET player2_name = '".$player2_name."' WHERE unique_id = '".$game_code."'";
+  $conn->query($sql_update);
+  // Redirect player to play page with correct code
+  header("Location: play.php?game=".$game_code);
+  $conn->close();
+  exit();
 }
 
-// echo generateRand_md5uid();
-
+/* Generate random ID
 echo "Random ID:<br />";
 $c = uniqid (rand (),false);
 echo $c;
 echo "<br />";
+*/
 
-// Test creation of new rows in the DB
+/* Test creation of new rows in the DB
 $sql = "INSERT INTO rooms (unique_id, status) VALUES ('".$c."', 'new')";
 
 if ($conn->query($sql) === TRUE) {
@@ -52,6 +67,8 @@ if ($conn->query($sql) === TRUE) {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-$conn->close();
 */
+
+// Close the DB connection
+$conn->close();
 ?>
