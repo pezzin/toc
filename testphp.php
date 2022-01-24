@@ -32,7 +32,7 @@ function generateRand_md5uid() {
 // echo generateRand_md5uid();
 
 echo "Random ID:<br />";
-$c = uniqid (rand (),true);
+$c = uniqid (rand (),false);
 echo $c;
 echo "<br />";
 
