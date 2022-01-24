@@ -1,3 +1,8 @@
+<?php
+// Get values from previous page
+$game_code = $_GET['game'];
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -260,7 +265,16 @@
 
 <?php
 // Fetch names of player from DB
-$sql = "SELECT * from rooms WHERE unique_id = '".echo $_GET['game']."'";
+$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+$server = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$db = substr($url["path"], 1);
+
+$conn = new mysqli($server, $username, $password, $db);
+
+$sql = "SELECT * from rooms WHERE unique_id = '".$game_code."'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 
@@ -275,7 +289,7 @@ $conn->close();
   This is a development server for the game: <b>Throne of Cubes</b>.<br />
   Game designer: Davide Ghelfi<br />
   Web Developer: Christian Pezzin<br />
-  Game ID: <?php echo $_GET['game']; ?>
+  Game ID: <?php echo $game_code; ?>
   Player 1 name: <?php echo $p1; ?><br />
   Player 2 name: <?php echo $p2; ?><br />
   </div>
