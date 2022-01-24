@@ -37,8 +37,7 @@ echo $c;
 echo "<br />";
 
 // Test creation of new rows in the DB
-$sql = "INSERT INTO rooms (unique_id, status)
-        VALUES ($c, 'New')";
+$sql = "INSERT INTO rooms (unique_id, status) VALUES (".$c.", 'new')";
 
 if ($conn->query($sql) === TRUE) {
   echo "New room created successfully";
