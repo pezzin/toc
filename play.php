@@ -289,7 +289,7 @@ $conn->close();
   This is a development server for the game: <b>Throne of Cubes</b>.<br />
   Game designer: Davide Ghelfi<br />
   Web Developer: Christian Pezzin<br />
-  Game ID: <?php echo $game_code; ?>
+  Game ID: <?php echo $game_code; ?><br />
   Player 1 name: <?php echo $p1; ?><br />
   Player 2 name: <?php echo $p2; ?><br />
   </div>
