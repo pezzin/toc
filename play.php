@@ -9,22 +9,7 @@ $game_code = $_GET['game'];
     <script src="https://unpkg.com/konva@8.3.2/konva.min.js"></script>
     <meta charset="utf-8" />
     <title>Thrones of Cubes</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #f0f0f0;
-        background-size: cover;
-      }
-
-      #desc {
-        position : absolute;
-        top: 5px;
-        left: 5px;
-      }
-
-    </style>
+    <link rel="stylesheet" href="toc.css">
   </head>
   <body>
 
