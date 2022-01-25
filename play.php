@@ -265,6 +265,7 @@ $row = $result->fetch_assoc();
 
 $p1 = $row["player1_name"];
 $p2 = $row["player2_name"];
+$allow = $row["spectators"];
 
 $conn->close();
 ?>
@@ -277,6 +278,7 @@ $conn->close();
   Game ID: <?php echo $game_code; ?><br />
   Player 1 name: <?php echo $p1; ?><br />
   Player 2 name: <?php echo $p2; ?><br />
+  Allow spectators: <?php echo $allow; ?>
   </div>
 </div>
 

@@ -14,6 +14,7 @@ session_start();
     <form action="check2.php" method="GET">
       <label for="name">Your name:</label><br />
       <input type="text" id="name" name="name"><br />
+      <label for="name">Allow spectators:</label><input type="checkbox" id="spectators" name="spectators" value="1"><br />
       <input class="button button_red" type="submit" value="Create game">
     </form>
   </center>
