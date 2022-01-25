@@ -12,7 +12,7 @@
       <input type="text" id="code" name="code"><br />
       <label for="name">Your name:</label><br />
       <input type="text" id="name" name="name"><br />
-      <input class="button" type="submit" value="Join game">
+      <input class="button button_red" type="submit" value="Join game">
     </form>
   </center>
 </body>
