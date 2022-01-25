@@ -12,9 +12,6 @@ echo "IP:" . $_SERVER['REMOTE_ADDR'];
 // Get value from previous form
 $player1_name = $_GET['name'];
 $allow_spectators = $_GET['spectators'];
-if ($_GET['spectators'] != 1) {
-  $allow_spectators = 0;
-}
 
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
