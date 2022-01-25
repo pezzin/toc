@@ -1,6 +1,13 @@
 <?php
+// Start the session
+session_start();
+
 // Get values from previous page
 $game_code = $_GET['game'];
+
+// Use session variables
+// $_SESSION["is_player"]
+
 ?>
 
 <!DOCTYPE html>
@@ -278,7 +285,18 @@ $conn->close();
   Game ID: <?php echo $game_code; ?><br />
   Player 1 name: <?php echo $p1; ?><br />
   Player 2 name: <?php echo $p2; ?><br />
-  Allow spectators: <?php echo $allow; ?>
+  Allow spectators: <?php echo $allow; ?><br />
+  <?php
+if (($_SESSION["is_player"] == "0") && ($allow == "1")) {
+  echo "You are not an authorized player. You are just a Spectator.<br />";
+} else {
+  if ($_SESSION["is_player"] == "0") {
+    echo "You are not an authorized player. YOU CANNOT BE HERE!!!<br />";
+    echo "Thou shall be redirected here: --> <a href=\"error.html\"</a>";
+  }
+}
+
+   ?>
   </div>
 </div>
 

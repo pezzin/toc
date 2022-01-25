@@ -72,6 +72,10 @@ $sql = "INSERT INTO rooms (unique_id, status, player1_name, spectators) VALUES (
 
 if ($conn->query($sql) === TRUE) {
   // echo "New room created successfully";
+
+  // Set session variables
+  $_SESSION["is_player"] = "1";
+
   header("Location: play.php?game=".$c);
   $conn->close();
 } else {

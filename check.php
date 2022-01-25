@@ -1,4 +1,6 @@
 <?php
+// Start the session
+session_start();
 /*
 echo "Codice:" . $_GET['code'];
 echo "<br />";
@@ -46,6 +48,10 @@ if ($result->num_rows == 0) {
   echo "</center>";
 } else {
   // Write name of player 2 in DB
+
+  // Set session variables
+  $_SESSION["is_player"] = "1";
+  
   $sql_update = "UPDATE rooms SET player2_name = '".$player2_name."', status = 'full' WHERE unique_id = '".$game_code."'";
   $conn->query($sql_update);
   // Redirect player to play page with correct code
