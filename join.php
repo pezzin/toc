@@ -11,7 +11,7 @@ session_start();
 <body>
   <center>
     <h1>Thrones of Cubes</h1>
-    <form action="check.php" method="GET">
+    <form action="check_join.php" method="GET">
       <label for="code">Insert game code:</label><br />
       <input type="text" id="code" name="code"><br />
       <label for="name">Your name:</label><br />
