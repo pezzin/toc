@@ -70,7 +70,7 @@ $c = uniqid (rand (),false);
 /* Test creation of new rows in the DB */
 $sql = "INSERT INTO rooms (unique_id, status, player1_name, spectators) VALUES ('".$c."', 'waiting', '".$player1_name."', '".$allow_spectators."')";
 
-if ($conn->query($sql) === TRUE) {
+if ( $conn->query($sql ) === TRUE) {
   // echo "New room created successfully";
 
   // Set session variables

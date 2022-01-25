@@ -12,13 +12,13 @@ $game_code = $_GET['game'];
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="https://unpkg.com/konva@8.3.2/konva.min.js"></script>
-    <meta charset="utf-8" />
-    <title>Thrones of Cubes</title>
-    <link rel="stylesheet" href="toc.css">
-  </head>
-  <body>
+<head>
+  <script src="https://unpkg.com/konva@8.3.2/konva.min.js"></script>
+  <meta charset="utf-8" />
+  <title>Thrones of Cubes</title>
+  <link rel="stylesheet" href="toc.css">
+</head>
+<body>
 
   <div id="container"></div>
 
@@ -130,8 +130,8 @@ $game_code = $_GET['game'];
 
     rectangle.on('dragend', (e) => {
       rectangle.position({
-         x: Math.round(rectangle.x() / blockSnapSize) * blockSnapSize,
-         y: Math.round(rectangle.y() / blockSnapSize) * blockSnapSize
+        x: Math.round(rectangle.x() / blockSnapSize) * blockSnapSize,
+        y: Math.round(rectangle.y() / blockSnapSize) * blockSnapSize
       });
       stage.batchDraw();
       shadowRectangle.hide();
@@ -154,104 +154,104 @@ $game_code = $_GET['game'];
   // Use this to output something in case of need
   // console.log(width, padding, width / padding);
 
-/*
+  /*
   for (var i = 0; i < width / padding; i++) {
-    gridLayer.add(new Konva.Line({
-      points: [Math.round(i * padding) + 0.5, 0, Math.round(i * padding) + 0.5, height],
-      // stroke: '#ddd',
-      strokeWidth: 1,
-    }));
-  }
+  gridLayer.add(new Konva.Line({
+  points: [Math.round(i * padding) + 0.5, 0, Math.round(i * padding) + 0.5, height],
+  // stroke: '#ddd',
+  strokeWidth: 1,
+}));
+}
 
-  gridLayer.add(new Konva.Line({points: [0,0,10,10]}));
+gridLayer.add(new Konva.Line({points: [0,0,10,10]}));
 
-  for (var j = 0; j < height / padding; j++) {
-    gridLayer.add(new Konva.Line({
-      points: [0, Math.round(j * padding), width, Math.round(j * padding)],
-      // stroke: '#ddd',
-      strokeWidth: 0.5,
-    }));
-  }
+for (var j = 0; j < height / padding; j++) {
+gridLayer.add(new Konva.Line({
+points: [0, Math.round(j * padding), width, Math.round(j * padding)],
+// stroke: '#ddd',
+strokeWidth: 0.5,
+}));
+}
 */
 
-  var layer = new Konva.Layer();
+var layer = new Konva.Layer();
 
-  shadowRectangle.hide();
+shadowRectangle.hide();
 
-  layer.add(shadowRectangle);
+layer.add(shadowRectangle);
 
-  // newCube(blockSnapSize, blockSnapSize, layer, stage);
+// newCube(blockSnapSize, blockSnapSize, layer, stage);
 
-  // Setting cubes for Player 1
-  newCube(cube_x_p1, cube_y_p1, layer, stage, color_yellow);
-  newCube(cube_x_p1 + distanza, cube_y_p1, layer, stage, color_yellow);
-  newCube(cube_x_p1 + distanza * 2, cube_y_p1, layer, stage, color_white);
-  newCube(cube_x_p1 + distanza * 3, cube_y_p1, layer, stage, color_white);
-  newCube(cube_x_p1 + distanza * 4, cube_y_p1, layer, stage, color_red);
-  newCube(cube_x_p1 + distanza * 5, cube_y_p1, layer, stage, color_red);
-  newCube(cube_x_p1 + distanza * 6, cube_y_p1, layer, stage, color_black);
-  newCube(cube_x_p1 + distanza * 7, cube_y_p1, layer, stage, color_black);
-  newCube(cube_x_p1 + distanza * 8, cube_y_p1, layer, stage, color_blue);
-  newCube(cube_x_p1 + distanza * 9, cube_y_p1, layer, stage, color_blue);
-  newCube(cube_x_p1 + distanza * 10, cube_y_p1, layer, stage, color_grey);
-  newCube(cube_x_p1 + distanza * 11, cube_y_p1, layer, stage, color_grey);
+// Setting cubes for Player 1
+newCube(cube_x_p1, cube_y_p1, layer, stage, color_yellow);
+newCube(cube_x_p1 + distanza, cube_y_p1, layer, stage, color_yellow);
+newCube(cube_x_p1 + distanza * 2, cube_y_p1, layer, stage, color_white);
+newCube(cube_x_p1 + distanza * 3, cube_y_p1, layer, stage, color_white);
+newCube(cube_x_p1 + distanza * 4, cube_y_p1, layer, stage, color_red);
+newCube(cube_x_p1 + distanza * 5, cube_y_p1, layer, stage, color_red);
+newCube(cube_x_p1 + distanza * 6, cube_y_p1, layer, stage, color_black);
+newCube(cube_x_p1 + distanza * 7, cube_y_p1, layer, stage, color_black);
+newCube(cube_x_p1 + distanza * 8, cube_y_p1, layer, stage, color_blue);
+newCube(cube_x_p1 + distanza * 9, cube_y_p1, layer, stage, color_blue);
+newCube(cube_x_p1 + distanza * 10, cube_y_p1, layer, stage, color_grey);
+newCube(cube_x_p1 + distanza * 11, cube_y_p1, layer, stage, color_grey);
 
-  // Setting cubes for Player 2
+// Setting cubes for Player 2
 
-  newCube(cube_x_p2, cube_y_p1, layer, stage, color_yellow);
-  newCube(cube_x_p2 + distanza, cube_y_p1, layer, stage, color_yellow);
-  newCube(cube_x_p2 + distanza * 2, cube_y_p1, layer, stage, color_white);
-  newCube(cube_x_p2 + distanza * 3, cube_y_p1, layer, stage, color_white);
-  newCube(cube_x_p2 + distanza * 4, cube_y_p1, layer, stage, color_red);
-  newCube(cube_x_p2 + distanza * 5, cube_y_p1, layer, stage, color_red);
-  newCube(cube_x_p2 + distanza * 6, cube_y_p1, layer, stage, color_black);
-  newCube(cube_x_p2 + distanza * 7, cube_y_p1, layer, stage, color_black);
-  newCube(cube_x_p2 + distanza * 8, cube_y_p1, layer, stage, color_blue);
-  newCube(cube_x_p2 + distanza * 9, cube_y_p1, layer, stage, color_blue);
-  newCube(cube_x_p2 + distanza * 10, cube_y_p1, layer, stage, color_grey);
-  newCube(cube_x_p2 + distanza * 11, cube_y_p1, layer, stage, color_grey);
+newCube(cube_x_p2, cube_y_p1, layer, stage, color_yellow);
+newCube(cube_x_p2 + distanza, cube_y_p1, layer, stage, color_yellow);
+newCube(cube_x_p2 + distanza * 2, cube_y_p1, layer, stage, color_white);
+newCube(cube_x_p2 + distanza * 3, cube_y_p1, layer, stage, color_white);
+newCube(cube_x_p2 + distanza * 4, cube_y_p1, layer, stage, color_red);
+newCube(cube_x_p2 + distanza * 5, cube_y_p1, layer, stage, color_red);
+newCube(cube_x_p2 + distanza * 6, cube_y_p1, layer, stage, color_black);
+newCube(cube_x_p2 + distanza * 7, cube_y_p1, layer, stage, color_black);
+newCube(cube_x_p2 + distanza * 8, cube_y_p1, layer, stage, color_blue);
+newCube(cube_x_p2 + distanza * 9, cube_y_p1, layer, stage, color_blue);
+newCube(cube_x_p2 + distanza * 10, cube_y_p1, layer, stage, color_grey);
+newCube(cube_x_p2 + distanza * 11, cube_y_p1, layer, stage, color_grey);
 
-  // add names Players
-  var label_p1 = new Konva.Text({
-    x: stage.width() / 2 - 600,
-    y: cube_y_p1 - 50,
-    text: 'Player 1',
-    fontSize: 30,
-    fontFamily: 'Calibri',
-    fill: 'green',
+// add names Players
+var label_p1 = new Konva.Text({
+  x: stage.width() / 2 - 600,
+  y: cube_y_p1 - 50,
+  text: 'Player 1',
+  fontSize: 30,
+  fontFamily: 'Calibri',
+  fill: 'green',
+});
+
+var label_p2 = new Konva.Text({
+  x: stage.width() / 2 + 600,
+  y: cube_y_p2 - 50,
+  text: 'Player 2',
+  fontSize: 30,
+  fontFamily: 'Calibri',
+  fill: 'green',
+});
+
+// add image using main API:
+var imageObj = new Image();
+imageObj.onload = function () {
+  var campo = new Konva.Image({
+    x: mapX,
+    y: mapY,
+    image: imageObj,
+    width: 600,
+    height: 480,
   });
 
-  var label_p2 = new Konva.Text({
-    x: stage.width() / 2 + 600,
-    y: cube_y_p2 - 50,
-    text: 'Player 2',
-    fontSize: 30,
-    fontFamily: 'Calibri',
-    fill: 'green',
-  });
+  layer.add(campo);
+  campo.zIndex(0);
+}
 
-  // add image using main API:
-  var imageObj = new Image();
-  imageObj.onload = function () {
-    var campo = new Konva.Image({
-      x: mapX,
-      y: mapY,
-      image: imageObj,
-      width: 600,
-      height: 480,
-    });
+imageObj.src = 'img/mappa.jpg';
 
-    layer.add(campo);
-    campo.zIndex(0);
-  }
+layer.add(label_p1);
+layer.add(label_p2);
 
-  imageObj.src = 'img/mappa.jpg';
-
-  layer.add(label_p1);
-  layer.add(label_p2);
-
-  stage.add(gridLayer);
-  stage.add(layer);
+stage.add(gridLayer);
+stage.add(layer);
 
 </script>
 
@@ -279,26 +279,25 @@ $conn->close();
 
 <div id="desc">
   <div>
-  This is a development server for the game: <b>Throne of Cubes</b>.<br />
-  Game designer: Davide Ghelfi<br />
-  Web Developer: Christian Pezzin<br />
-  Game ID: <?php echo $game_code; ?><br />
-  Player 1 name: <?php echo $p1; ?><br />
-  Player 2 name: <?php echo $p2; ?><br />
-  Allow spectators: <?php echo $allow; ?><br />
-  <?php
-if (($_SESSION["is_player"] == "0") && ($allow == "1")) {
-  echo "You are not an authorized player. You are just a Spectator.<br />";
-} else {
-  if ($_SESSION["is_player"] == "0") {
-    echo "You are not an authorized player. YOU CANNOT BE HERE!!!<br />";
-    echo "Thou shall be redirected here: --> <a href=\"error.html\"</a>";
-  }
-}
+    This is a development server for the game: <b>Throne of Cubes</b>.<br />
+    Game designer: Davide Ghelfi<br />
+    Web Developer: Christian Pezzin<br />
+    Game ID: <?php echo $game_code; ?><br />
+    Player 1 name: <?php echo $p1; ?><br />
+    Player 2 name: <?php echo $p2; ?><br />
+    Allow spectators: <?php echo $allow; ?><br />
+    <?php
+    if (($_SESSION["is_player"] == "0") && ($allow == "1")) {
+      echo "You are not an authorized player. You are just a Spectator. Happy watching!<br />";
+    } else {
+      if ()($_SESSION["is_player"] == "0") && ($allow == "0")) {
+        echo "You are not an authorized player. YOU CANNOT BE HERE!!!<br />";
+        echo "Thou shall be redirected here: --> <a href=\"error.html\"</a>";
+      }
+    }
 
-   ?>
+    ?>
   </div>
 </div>
-
 </body>
 </html>
