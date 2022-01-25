@@ -46,7 +46,7 @@ if ($result->num_rows == 0) {
   echo "</center>";
 } else {
   // Write name of player 2 in DB
-  $sql_update = "UPDATE rooms SET player2_name = '".$player2_name."' WHERE unique_id = '".$game_code."'";
+  $sql_update = "UPDATE rooms SET player2_name = '".$player2_name."', status = 'full' WHERE unique_id = '".$game_code."'";
   $conn->query($sql_update);
   // Redirect player to play page with correct code
   header("Location: play.php?game=".$game_code);

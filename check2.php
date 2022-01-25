@@ -68,7 +68,7 @@ $c = uniqid (rand (),false);
 // echo "<br />";
 
 /* Test creation of new rows in the DB */
-$sql = "INSERT INTO rooms (unique_id, status, player1_name, spectators) VALUES ('".$c."', 'new', '".$player1_name."', '".$allow_spectators."')";
+$sql = "INSERT INTO rooms (unique_id, status, player1_name, spectators) VALUES ('".$c."', 'waiting', '".$player1_name."', '".$allow_spectators."')";
 
 if ($conn->query($sql) === TRUE) {
   // echo "New room created successfully";
