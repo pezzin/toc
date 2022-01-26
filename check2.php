@@ -11,10 +11,17 @@ echo "IP:" . $_SERVER['REMOTE_ADDR'];
 
 // Get value from previous form
 $player1_name = $_GET['name'];
+
+// Save session variable
+$_SESSION['P1'] = $player1_name;
+
 $allow_spectators = $_GET['spectators'];
 if ($_GET['spectators'] != "1") {
   $allow_spectators = "0";
 }
+
+// Save session variable
+$_SESSION['ALLOW'] = $allow_spectators;
 
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
@@ -67,6 +74,9 @@ $c = uniqid (rand (),false);
 // echo $c;
 // echo "<br />";
 
+// Save session variable
+$_SESSION['CODE'] = $c;
+
 /* Test creation of new rows in the DB */
 $sql = "INSERT INTO rooms (unique_id, status, player1_name, spectators) VALUES ('".$c."', 'waiting', '".$player1_name."', '".$allow_spectators."')";
 
@@ -74,7 +84,7 @@ if ( $conn->query($sql ) === TRUE) {
   // echo "New room created successfully";
 
   // Set session variables
-  $_SESSION["is_player"] = "1";
+  $_SESSION['IS_PLAYER'] = "1";
 
   header("Location: play.php?game=".$c);
   $conn->close();
