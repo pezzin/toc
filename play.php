@@ -286,12 +286,16 @@ $conn->close();
     Player 1 name: <?php echo $p1; ?><br />
     Player 2 name: <?php echo $p2; ?><br />
     Allow spectators: <?php echo $allow; ?><br />
-    Session Variables: <?php echo session_id(); ?><br />
+    Session ID: <?php echo session_id(); ?><br />
+    $_SESSION['IS_PLAYER']: <?php echo $_SESSION['IS_PLAYER']; ?><br />
+    $_SESSION['P1']: <?php echo $_SESSION['P1']; ?><br />
+    $_SESSION['ALLOW']: <?php echo $_SESSION['ALLOW']; ?><br />
+
     <?php
     if (($_SESSION['IS_PLAYER'] == "0") && ($allow == "1")) {
       echo "You are not an authorized player. You are just a Spectator. Happy watching!<br />";
     } else {
-      if (($_SESSION['is_player'] == "0") && ($allow == "0")) {
+      if (($_SESSION['IS_PLAYER'] == "0") && ($allow == "0")) {
         echo "You are not an authorized player. YOU CANNOT BE HERE!!!<br />";
         echo "Thou shall be redirected here: --> <a href=\"error.html\"</a>";
       }
