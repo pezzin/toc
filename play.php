@@ -289,7 +289,7 @@ $conn->close();
     Session ID: <?php echo session_id(); ?><br />
     $_SESSION['IS_PLAYER']: <?php echo $_SESSION['IS_PLAYER']; ?><br />
     $_SESSION['P1']: <?php echo $_SESSION['P1']; ?><br />
-    $_SESSION['P2']: <?php echo $_SESSION['P1']; ?><br />
+    $_SESSION['P2']: <?php echo $_SESSION['P2']; ?><br />
     $_SESSION['ALLOW']: <?php echo $_SESSION['ALLOW']; ?><br />
 
     <?php
