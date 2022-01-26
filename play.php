@@ -298,7 +298,7 @@ $conn->close();
     } else {
       if ((!isset($_SESSION['IS_PLAYER'])) && ($allow == "0")) {
         echo "You are not an authorized player. YOU CANNOT BE HERE!!!<br />";
-        echo "Thou shall be redirected here: --> <a href=\"error.html\"</a>";
+        echo "Thou shall be redirected <a href=\"error.html\">here</a>.";
       }
     }
     ?>
