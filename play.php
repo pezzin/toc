@@ -293,10 +293,10 @@ $conn->close();
     $_SESSION['ALLOW']: <?php echo $_SESSION['ALLOW']; ?><br />
 
     <?php
-    if ((!is_set($_SESSION['IS_PLAYER'])) && ($allow == "1")) {
+    if ((!isset($_SESSION['IS_PLAYER'])) && ($allow == "1")) {
       echo "You are not an authorized player. You are just a Spectator. Happy watching!<br />";
     } else {
-      if ((!is_set($_SESSION['IS_PLAYER'])) && ($allow == "0")) {
+      if ((!isset($_SESSION['IS_PLAYER'])) && ($allow == "0")) {
         echo "You are not an authorized player. YOU CANNOT BE HERE!!!<br />";
         echo "Thou shall be redirected here: --> <a href=\"error.html\"</a>";
       }
