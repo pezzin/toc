@@ -302,7 +302,10 @@ $conn->close();
       if ((!isset($_SESSION['IS_PLAYER'])) && ($allow == "0")) {
         // echo "You are not an authorized player. YOU CANNOT BE HERE!!!<br />";
         // echo "Thou shall be redirected <a href=\"error.html\">here</a>.";
-        header("Location: error.html"");
+
+        // Using header function now will break the code. Trying with some javascript instead.
+        // header("Location: error.html"");
+        echo "<script> location.replace(\"error.html\"); </script>";
       }
     }
     ?>
